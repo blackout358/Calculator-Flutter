@@ -56,22 +56,32 @@ class _MainAppState extends State<MainApp> {
               children: [
                 ...List.generate(3, (index) {
                   int i = index + 7;
-                  return ElevatedButton(
-                    onPressed: () {
-                      setState(() {
-                        text = i.toString();
-                      });
-                    },
-                    style: myButtonStyle,
-                    child: Text(i.toString(), style: myTextStyle),
+                  return AppButtons(
+                    foregroundColor: Colors.white,
+                    backgroundColor: Colors.red,
+                    borderColor: Colors.orange,
+                    text: i.toString(),
+                    size: 90,
+                    borderRadius: 30,
                   );
+                  // return ElevatedButton(
+                  //   onPressed: () {
+                  //     setState(() {
+                  //       text = i.toString();
+                  //     });
+                  //   },
+                  //   style: myButtonStyle,
+                  //   child: Text(i.toString(), style: myTextStyle),
+                  // );
                 }),
                 AppButtons(
-                    foregroundColor: Colors.pink,
-                    backgroundColor: Colors.black,
-                    borderColor: Colors.teal,
-                    text: "+",
-                    size: 90)
+                  foregroundColor: Colors.white,
+                  backgroundColor: Colors.black,
+                  borderColor: Colors.teal,
+                  text: "+",
+                  size: 90,
+                  borderRadius: 20,
+                )
               ],
             ),
             const SizedBox(height: 15),

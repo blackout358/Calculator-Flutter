@@ -5,6 +5,7 @@ class AppButtons extends StatelessWidget {
   final Color backgroundColor;
   final Color borderColor;
   final String text;
+  final int borderRadius;
   IconData? icon;
   double size;
   AppButtons(
@@ -14,7 +15,8 @@ class AppButtons extends StatelessWidget {
       required this.borderColor,
       required this.text,
       required this.size,
-      this.icon});
+      this.icon,
+      required this.borderRadius});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -22,7 +24,7 @@ class AppButtons extends StatelessWidget {
       height: size,
       decoration: BoxDecoration(
           color: backgroundColor,
-          borderRadius: BorderRadius.circular(15),
+          borderRadius: BorderRadius.circular(borderRadius.toDouble()),
           border: Border.all(color: borderColor, width: 1.0)),
       child: ElevatedButton(
         onPressed: () {
@@ -31,11 +33,14 @@ class AppButtons extends StatelessWidget {
         style: ElevatedButton.styleFrom(
             backgroundColor: Colors.transparent,
             shadowColor: Colors.transparent,
+            foregroundColor: foregroundColor,
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(15))),
         child: Text(
           text,
-          style: TextStyle(fontSize: 40),
+          style: TextStyle(
+            fontSize: 40,
+          ),
         ),
       ),
     );

@@ -13,7 +13,7 @@ class MainApp extends StatefulWidget {
 }
 
 class _MainAppState extends State<MainApp> {
-  String text = "";
+  String text = "A";
   ButtonStyle myButtonStyle = ButtonStyle(
     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
       RoundedRectangleBorder(
@@ -63,6 +63,11 @@ class _MainAppState extends State<MainApp> {
                     text: i.toString(),
                     size: 90,
                     borderRadius: 30,
+                    onPressed: () {
+                      setState(() {
+                        text = i.toString();
+                      });
+                    },
                   );
                   // return ElevatedButton(
                   //   onPressed: () {
@@ -81,6 +86,9 @@ class _MainAppState extends State<MainApp> {
                   text: "+",
                   size: 90,
                   borderRadius: 20,
+                  onPressed: () {
+                    print("Pressed!");
+                  },
                 )
               ],
             ),

@@ -50,6 +50,7 @@ class _MainAppState extends State<MainApp> {
         ),
         backgroundColor: Colors.amberAccent,
         body: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -92,60 +93,76 @@ class _MainAppState extends State<MainApp> {
                 )
               ],
             ),
-            const SizedBox(height: 15),
-            // Row(
-            //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            //   children: [
-            //     ...List.generate(3, (index) {
-            //       int i = index + 4;
-            //       return ElevatedButton(
-            //         onPressed: () {
-            //           setState(() {
-            //             text = i.toString();
-            //           });
-            //         },
-            //         style: myButtonStyle,
-            //         child: Text(i.toString(), style: myTextStyle),
-            //       );
-            //     }),
-            //     ElevatedButton(
-            //       onPressed: () {
-            //         setState(() {
-            //           text = "";
-            //         });
-            //       },
-            //       style: myButtonStyle,
-            //       child: Text("-", style: myTextStyle),
-            //     ),
-            //   ],
-            // ),
             // const SizedBox(height: 15),
-            // Row(
-            //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            //   children: [
-            //     ...List.generate(3, (index) {
-            //       int i = index + 1;
-            //       return ElevatedButton(
-            //         onPressed: () {
-            //           setState(() {
-            //             text = i.toString();
-            //           });
-            //         },
-            //         style: myButtonStyle,
-            //         child: Text(i.toString(), style: myTextStyle),
-            //       );
-            //     }),
-            //     ElevatedButton(
-            //       onPressed: () {
-            //         setState(() {
-            //           text = "";
-            //         });
-            //       },
-            //       style: myButtonStyle,
-            //       child: Text("x", style: myTextStyle),
-            //     ),
-            //   ],
-            // ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                ...List.generate(3, (index) {
+                  int i = index + 4;
+                  return AppButtons(
+                    foregroundColor: Colors.white,
+                    backgroundColor: Colors.red,
+                    borderColor: Colors.orange,
+                    text: i.toString(),
+                    size: 90,
+                    borderRadius: 30,
+                    onPressed: () {
+                      setState(() {
+                        text = i.toString();
+                      });
+                    },
+                  );
+                }),
+                AppButtons(
+                  foregroundColor: Colors.white,
+                  backgroundColor: Colors.red,
+                  borderColor: Colors.orange,
+                  text: "-",
+                  size: 90,
+                  borderRadius: 30,
+                  onPressed: () {
+                    setState(() {
+                      text = "-";
+                    });
+                  },
+                ),
+              ],
+            ),
+            // const SizedBox(height: 15),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                ...List.generate(3, (index) {
+                  int i = index + 1;
+                  return AppButtons(
+                    foregroundColor: Colors.white,
+                    backgroundColor: Colors.red,
+                    borderColor: Colors.orange,
+                    text: i.toString(),
+                    size: 90,
+                    borderRadius: 30,
+                    onPressed: () {
+                      setState(() {
+                        text = i.toString();
+                      });
+                    },
+                  );
+                }),
+                AppButtons(
+                  foregroundColor: Colors.white,
+                  backgroundColor: Colors.red,
+                  borderColor: Colors.orange,
+                  text: "×",
+                  size: 90,
+                  borderRadius: 30,
+                  onPressed: () {
+                    setState(() {
+                      text = "×";
+                    });
+                  },
+                ),
+              ],
+            ),
             ElevatedButton(
               onPressed: () {
                 setState(() {

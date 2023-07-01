@@ -25,7 +25,12 @@ class AppButtons extends StatelessWidget {
       width: size,
       height: size,
       decoration: BoxDecoration(
-          color: backgroundColor,
+          // color: backgroundColor,
+          gradient: const LinearGradient(
+            colors: [Color(0xFFFF5B94), Color(0xFF8441A4)],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
           borderRadius: BorderRadius.circular(borderRadius.toDouble()),
           border: Border.all(color: borderColor, width: 1.0)),
       child: ElevatedButton(
@@ -38,7 +43,7 @@ class AppButtons extends StatelessWidget {
                 borderRadius: BorderRadius.circular(15))),
         child: Text(
           text,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 40,
           ),
         ),

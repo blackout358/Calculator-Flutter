@@ -1,3 +1,4 @@
+import 'package:calculator/Widgets/app_buttons.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,7 +15,30 @@ class MainApp extends StatefulWidget {
 class _MainAppState extends State<MainApp> {
   String text = "";
   ButtonStyle myButtonStyle = ButtonStyle(
-    fixedSize: MaterialStateProperty.all<Size>(Size(80, 80)),
+    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+      RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(18),
+        side: BorderSide(
+          color: Colors.teal,
+          width: 2,
+        ),
+      ),
+    ),
+    minimumSize: MaterialStateProperty.all<Size>(const Size(90, 90)),
+    // child: Ink(
+    //   decoration: BoxDecoration(
+    //     gradient: LinearGradient(
+    //       colors: [Color(0xff374ABE), Color(0xff64B6FF)],
+    //       begin: Alignment.centerLeft,
+    //       end: Alignment.centerRight,
+    //     ),
+    //     borderRadius: BorderRadius.circular(18),
+    //   ),
+    // ),
+  );
+
+  TextStyle myTextStyle = const TextStyle(
+    fontSize: 40,
   );
 
   @override
@@ -39,61 +63,83 @@ class _MainAppState extends State<MainApp> {
                       });
                     },
                     style: myButtonStyle,
-                    child: Text(i.toString()),
+                    child: Text(i.toString(), style: myTextStyle),
                   );
                 }),
-                ElevatedButton(
-                  onPressed: () {
-                    setState(() {
-                      text = "";
-                    });
-                  },
-                  style: myButtonStyle,
-                  child: const Text("+"),
-                ),
+                AppButtons(
+                    foregroundColor: Colors.pink,
+                    backgroundColor: Colors.black,
+                    borderColor: Colors.teal,
+                    text: "+",
+                    size: 90)
               ],
             ),
-            SizedBox(height: 15),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                ...List.generate(3, (index) {
-                  int i = index + 4;
-                  return ElevatedButton(
-                    onPressed: () {
-                      setState(() {
-                        text = i.toString();
-                      });
-                    },
-                    style: myButtonStyle,
-                    child: Text(i.toString()),
-                  );
-                }),
-                ElevatedButton(
-                  onPressed: () {
-                    setState(() {
-                      text = "";
-                    });
-                  },
-                  style: myButtonStyle,
-                  child: const Text("-"),
-                ),
-              ],
-            ),
+            const SizedBox(height: 15),
+            // Row(
+            //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            //   children: [
+            //     ...List.generate(3, (index) {
+            //       int i = index + 4;
+            //       return ElevatedButton(
+            //         onPressed: () {
+            //           setState(() {
+            //             text = i.toString();
+            //           });
+            //         },
+            //         style: myButtonStyle,
+            //         child: Text(i.toString(), style: myTextStyle),
+            //       );
+            //     }),
+            //     ElevatedButton(
+            //       onPressed: () {
+            //         setState(() {
+            //           text = "";
+            //         });
+            //       },
+            //       style: myButtonStyle,
+            //       child: Text("-", style: myTextStyle),
+            //     ),
+            //   ],
+            // ),
+            // const SizedBox(height: 15),
+            // Row(
+            //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            //   children: [
+            //     ...List.generate(3, (index) {
+            //       int i = index + 1;
+            //       return ElevatedButton(
+            //         onPressed: () {
+            //           setState(() {
+            //             text = i.toString();
+            //           });
+            //         },
+            //         style: myButtonStyle,
+            //         child: Text(i.toString(), style: myTextStyle),
+            //       );
+            //     }),
+            //     ElevatedButton(
+            //       onPressed: () {
+            //         setState(() {
+            //           text = "";
+            //         });
+            //       },
+            //       style: myButtonStyle,
+            //       child: Text("x", style: myTextStyle),
+            //     ),
+            //   ],
+            // ),
             ElevatedButton(
               onPressed: () {
                 setState(() {
                   text = "";
                 });
               },
-              child: const Text("Reset"),
+              child: Text("Reset", style: myTextStyle),
             ),
-            Container(
+            SizedBox(
               height: 306,
               child: Column(
                 children: [
-                  Text(text),
-                  Text(text),
                   Text(text),
                 ],
               ),

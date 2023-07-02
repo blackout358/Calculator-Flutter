@@ -47,11 +47,66 @@ class _MainAppState extends State<MainApp> {
             ),
             Spacer(),
             Container(
-              height: 420,
+              // margin: EdgeInsets.all(24),
+              // padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+              height: (MediaQuery.of(context).size.width + 70),
               alignment: Alignment.bottomCenter,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      AppButtons(
+                        foregroundColor: Colors.white,
+                        backgroundColor: Colors.red,
+                        borderColor: Colors.orange,
+                        text: "AC",
+                        width: 90,
+                        height: 90,
+                        borderRadius: 30,
+                        onPressed: () {
+                          print("Hey");
+                        },
+                      ),
+                      AppButtons(
+                        foregroundColor: Colors.white,
+                        backgroundColor: Colors.red,
+                        borderColor: Colors.orange,
+                        text: "AC",
+                        width: 90,
+                        height: 90,
+                        borderRadius: 30,
+                        onPressed: () {
+                          print("Hey");
+                        },
+                      ),
+                      AppButtons(
+                        foregroundColor: Colors.white,
+                        backgroundColor: Colors.red,
+                        borderColor: Colors.orange,
+                        text: "AC",
+                        width: 90,
+                        height: 90,
+                        borderRadius: 30,
+                        onPressed: () {
+                          print("Hey");
+                        },
+                      ),
+                      AppButtons(
+                        foregroundColor: Colors.white,
+                        backgroundColor: Colors.red,
+                        borderColor: Colors.orange,
+                        text: "AC",
+                        width: 90,
+                        height: 90,
+                        borderRadius: 30,
+                        onPressed: () {
+                          print("Hey");
+                        },
+                      ),
+                    ],
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
@@ -175,6 +230,7 @@ class _MainAppState extends State<MainApp> {
                         borderRadius: 30,
                         onPressed: () {
                           setState(() {
+                            print(MediaQuery.of(context).size.width);
                             text = "0";
                           });
                         },
@@ -206,6 +262,9 @@ class _MainAppState extends State<MainApp> {
                   ),
                 ],
               ),
+            ),
+            SizedBox(
+              height: 0,
             ),
           ],
         ),

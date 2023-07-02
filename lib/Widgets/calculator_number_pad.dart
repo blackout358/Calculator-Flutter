@@ -2,54 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:calculator/Widgets/app_buttons.dart';
 import 'package:flutter_layout_grid/flutter_layout_grid.dart';
 
-// class CalculatorNumberPad extends StatefulWidget {
-//   final int crossAxisCount;
-//   final ValueChanged<String> onPressed;
-
-//   const CalculatorNumberPad({
-//     Key? key,
-//     required this.crossAxisCount,
-//     required this.onPressed,
-//   }) : super(key: key);
-
-//   @override
-//   State<CalculatorNumberPad> createState() => _CalculatorNumberPadState();
-// }
-
-// class _CalculatorNumberPadState extends State<CalculatorNumberPad> {
-//   @override
-//   Widget build(BuildContext context) {
-//     return LayoutGrid(
-//       // set some flexible track sizes based on the crossAxisCount
-//       columnSizes: widget.crossAxisCount == 2 ? [1.fr, 1.fr] : [1.fr],
-//       // set all the row sizes to auto (self-sizing height)
-//       rowSizes: widget.crossAxisCount == 2
-//           ? const [auto, auto]
-//           : const [auto, auto, auto, auto],
-//       rowGap: 40, // equivalent to mainAxisSpacing
-//       columnGap: 24, // equivalent to crossAxisSpacing
-//       // note: there's no childAspectRatio
-//       children: [
-//         // render all the cards with *automatic child placement*
-//         for (var i = 0; i < 10; i++)
-//           AppButtons(
-//             foregroundColor: Colors.white,
-//             backgroundColor: Colors.red,
-//             borderColor: Colors.orange,
-//             text: i.toString(),
-//             width: 90,
-//             height: 90,
-//             borderRadius: 30,
-//             onPressed: () {
-//               widget.onPressed(i.toString());
-//               print("Hey");
-//             },
-//           ),
-//       ],
-//     );
-//   }
-// }
-
 class CalculatorNumberPad extends StatefulWidget {
   final ValueChanged<String> onPressed;
   // String textBox;
@@ -64,9 +16,10 @@ class CalculatorNumberPad extends StatefulWidget {
 }
 
 class _CalculatorNumberPadState extends State<CalculatorNumberPad> {
-  int size = 75;
+  // double size = 100;
   @override
   Widget build(BuildContext context) {
+    double size = 70;
     return Container(
       // height: 300,
       margin: EdgeInsets.all(2),
@@ -84,8 +37,8 @@ class _CalculatorNumberPadState extends State<CalculatorNumberPad> {
                 backgroundColor: Colors.red,
                 borderColor: Colors.orange,
                 text: "AC",
-                width: size.toDouble(),
-                height: size.toDouble(),
+                width: size,
+                height: size,
                 borderRadius: 30,
                 onPressed: () {
                   print("Hey");
@@ -95,33 +48,33 @@ class _CalculatorNumberPadState extends State<CalculatorNumberPad> {
                 foregroundColor: Colors.white,
                 backgroundColor: Colors.red,
                 borderColor: Colors.orange,
-                text: "AC",
-                width: size.toDouble(),
-                height: size.toDouble(),
+                text: "±",
+                width: size,
+                height: size,
                 borderRadius: 30,
                 onPressed: () {
-                  print("Hey");
+                  print("plus/minus");
                 },
               ),
               AppButtons(
                 foregroundColor: Colors.white,
                 backgroundColor: Colors.red,
                 borderColor: Colors.orange,
-                text: "AC",
-                width: size.toDouble(),
-                height: size.toDouble(),
+                text: "%",
+                width: size,
+                height: size,
                 borderRadius: 30,
                 onPressed: () {
-                  print("Hey");
+                  print("%");
                 },
               ),
               AppButtons(
                 foregroundColor: Colors.white,
                 backgroundColor: Colors.red,
                 borderColor: Colors.orange,
-                text: "AC",
-                width: size.toDouble(),
-                height: size.toDouble(),
+                text: "÷",
+                width: size,
+                height: size,
                 borderRadius: 30,
                 onPressed: () {
                   print("Hey");
@@ -139,8 +92,8 @@ class _CalculatorNumberPadState extends State<CalculatorNumberPad> {
                   backgroundColor: Colors.red,
                   borderColor: Colors.orange,
                   text: i.toString(),
-                  width: size.toDouble(),
-                  height: size.toDouble(),
+                  width: size,
+                  height: size,
                   borderRadius: 30,
                   onPressed: () {
                     widget.onPressed(i.toString());
@@ -152,9 +105,9 @@ class _CalculatorNumberPadState extends State<CalculatorNumberPad> {
                 backgroundColor: Colors.black,
                 borderColor: Colors.teal,
                 text: "×",
-                width: size.toDouble(),
-                height: size.toDouble(),
-                borderRadius: 20,
+                width: size,
+                height: size,
+                borderRadius: 30,
                 onPressed: () {
                   widget.onPressed("×");
                 },
@@ -172,8 +125,8 @@ class _CalculatorNumberPadState extends State<CalculatorNumberPad> {
                   backgroundColor: Colors.red,
                   borderColor: Colors.orange,
                   text: i.toString(),
-                  width: size.toDouble(),
-                  height: size.toDouble(),
+                  width: size,
+                  height: size,
                   borderRadius: 30,
                   onPressed: () {
                     widget.onPressed(i.toString());
@@ -185,8 +138,8 @@ class _CalculatorNumberPadState extends State<CalculatorNumberPad> {
                 backgroundColor: Colors.red,
                 borderColor: Colors.orange,
                 text: "-",
-                width: size.toDouble(),
-                height: size.toDouble(),
+                width: size,
+                height: size,
                 borderRadius: 30,
                 onPressed: () {
                   widget.onPressed("-");
@@ -206,8 +159,8 @@ class _CalculatorNumberPadState extends State<CalculatorNumberPad> {
                   backgroundColor: Colors.red,
                   borderColor: Colors.orange,
                   text: i.toString(),
-                  width: size.toDouble(),
-                  height: size.toDouble(),
+                  width: size,
+                  height: size,
                   borderRadius: 30,
                   onPressed: () {
                     widget.onPressed(i.toString());
@@ -219,8 +172,8 @@ class _CalculatorNumberPadState extends State<CalculatorNumberPad> {
                 backgroundColor: Colors.red,
                 borderColor: Colors.orange,
                 text: "+",
-                width: size.toDouble(),
-                height: size.toDouble(),
+                width: size,
+                height: size,
                 borderRadius: 30,
                 onPressed: () {
                   widget.onPressed("+");
@@ -236,8 +189,8 @@ class _CalculatorNumberPadState extends State<CalculatorNumberPad> {
                 backgroundColor: Colors.red,
                 borderColor: Colors.orange,
                 text: "0",
-                width: (size + 10).toDouble(),
-                height: size.toDouble(),
+                width: size + size + 4,
+                height: size,
                 borderRadius: 30,
                 onPressed: () {
                   widget.onPressed("0");
@@ -248,8 +201,8 @@ class _CalculatorNumberPadState extends State<CalculatorNumberPad> {
                 backgroundColor: Colors.red,
                 borderColor: Colors.cyanAccent,
                 text: ".",
-                width: size.toDouble(),
-                height: size.toDouble(),
+                width: size,
+                height: size,
                 borderRadius: 30,
                 onPressed: () {
                   print("Dot");
@@ -260,8 +213,8 @@ class _CalculatorNumberPadState extends State<CalculatorNumberPad> {
                   backgroundColor: Colors.red,
                   borderColor: Colors.cyanAccent,
                   text: "=",
-                  width: size.toDouble(),
-                  height: size.toDouble(),
+                  width: size,
+                  height: size,
                   borderRadius: 30,
                   onPressed: () {
                     print("Equals");

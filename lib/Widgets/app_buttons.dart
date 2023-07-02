@@ -24,34 +24,31 @@ class AppButtons extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: FractionallySizedBox(
-        widthFactor: 1,
-        child: Container(
-          margin: EdgeInsets.all(2),
-          // padding: EdgeInsets.symmetric(horizontal: 0, vertical: 10),
-          width: width,
-          height: height,
-          // width: width,
-          decoration: BoxDecoration(
-            // color: backgroundColor,
-            gradient: const LinearGradient(
-              colors: [Color(0xFFFF5B94), Color(0xFF8441A4)],
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-            ),
-            borderRadius: BorderRadius.circular(borderRadius.toDouble()),
-            border: Border.all(
-              color: borderColor,
-              width: 1.0,
-            ),
+      child: Container(
+        margin: EdgeInsets.all(2),
+        width: width,
+        height: height,
+        decoration: BoxDecoration(
+          // color: backgroundColor,
+          gradient: const LinearGradient(
+            colors: [Color(0xFFFF5B94), Color(0xFF8441A4)],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
           ),
+          borderRadius: BorderRadius.circular(borderRadius.toDouble()),
+          border: Border.all(
+            color: borderColor,
+            width: 1.0,
+          ),
+        ),
+        child: Container(
           child: ElevatedButton(
             onPressed: onPressed,
             style: ElevatedButton.styleFrom(
               // margin: EdgeInsets.all(2),
               // padding: EdgeInsets.symmetric(horizontal: 0, vertical: 20),
               // minimumSize: Size.fromHeight(height),
-              backgroundColor: Color.fromARGB(172, 0, 255, 128),
+              backgroundColor: Colors.transparent,
               shadowColor: Colors.transparent,
               foregroundColor: foregroundColor,
               shape: RoundedRectangleBorder(

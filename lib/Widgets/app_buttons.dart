@@ -43,16 +43,20 @@ class AppButtons extends StatelessWidget {
         child: ElevatedButton(
           onPressed: onPressed,
           style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.transparent,
-              shadowColor: Colors.transparent,
-              foregroundColor: foregroundColor,
-              shape: RoundedRectangleBorder(
-                  borderRadius:
-                      BorderRadius.circular(borderRadius.toDouble()))),
+            minimumSize: Size.fromHeight(200),
+            backgroundColor: Colors.transparent,
+            shadowColor: Colors.transparent,
+            foregroundColor: foregroundColor,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(
+                borderRadius.toDouble(),
+              ),
+            ),
+          ),
           child: Text(
             text,
             style: TextStyle(
-              fontSize: 0.08 * MediaQuery.of(context).size.width,
+              fontSize: 0.04 * MediaQuery.of(context).size.height,
             ),
           ),
         ),

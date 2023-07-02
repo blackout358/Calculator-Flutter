@@ -8,22 +8,24 @@ class AppButtons extends StatelessWidget {
   final int borderRadius;
   final VoidCallback onPressed;
   IconData? icon;
-  double size;
+  double width;
+  double height;
   AppButtons(
       {super.key,
       required this.foregroundColor,
       required this.backgroundColor,
       required this.borderColor,
       required this.text,
-      required this.size,
+      required this.width,
+      required this.height,
       this.icon,
       required this.borderRadius,
       required this.onPressed});
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: size,
-      height: size,
+      width: width,
+      height: height,
       decoration: BoxDecoration(
           // color: backgroundColor,
           gradient: const LinearGradient(
@@ -40,7 +42,7 @@ class AppButtons extends StatelessWidget {
             shadowColor: Colors.transparent,
             foregroundColor: foregroundColor,
             shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(15))),
+                borderRadius: BorderRadius.circular(borderRadius.toDouble()))),
         child: Text(
           text,
           style: const TextStyle(

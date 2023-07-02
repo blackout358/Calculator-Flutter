@@ -25,12 +25,13 @@ class AppButtons extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: Container(
-        margin: EdgeInsets.all(10),
-        padding: EdgeInsets.symmetric(horizontal: 10, vertical: 12),
+        margin: EdgeInsets.all(2),
+        padding: EdgeInsets.symmetric(horizontal: 0, vertical: 20),
         // width: width,
         // height: (MediaQuery.of(context).size.width - 30) / 4,
         // width: (MediaQuery.of(context).size.width - 30) / 4,
         decoration: BoxDecoration(
+
             // color: backgroundColor,
             gradient: const LinearGradient(
               colors: [Color(0xFFFF5B94), Color(0xFF8441A4)],

@@ -16,6 +16,12 @@ class MainApp extends StatefulWidget {
 class _MainAppState extends State<MainApp> {
   String text = "A";
 
+  void updateTextBox(String value) {
+    setState(() {
+      text = value;
+    });
+  }
+
   TextStyle myTextStyle = const TextStyle(
     fontSize: 40,
   );
@@ -48,8 +54,9 @@ class _MainAppState extends State<MainApp> {
             ),
             Spacer(),
             CalculatorNumberPad(
-              textBox: text,
-              onPressed: () {},
+              onPressed: (String value) {
+                updateTextBox(value);
+              },
             ),
             SizedBox(
               height: 0,

@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:calculator/Widgets/app_buttons.dart';
 
 class CalculatorNumberPad extends StatefulWidget {
-  final VoidCallback onPressed;
-  String textBox;
-  CalculatorNumberPad(
-      {super.key, required this.textBox, required this.onPressed});
+  final ValueChanged<String> onPressed;
+  // String textBox;
+  CalculatorNumberPad({
+    Key? key,
+    // required this.textBox,
+    required this.onPressed,
+  }) : super(key: key);
 
   @override
   State<CalculatorNumberPad> createState() => _CalculatorNumberPadState();
@@ -89,11 +92,7 @@ class _CalculatorNumberPadState extends State<CalculatorNumberPad> {
                   height: 90,
                   borderRadius: 30,
                   onPressed: () {
-                    setState(
-                      () {
-                        widget.textBox = "";
-                      },
-                    );
+                    widget.onPressed(i.toString());
                   },
                 );
               }),
@@ -106,11 +105,7 @@ class _CalculatorNumberPadState extends State<CalculatorNumberPad> {
                 height: 90,
                 borderRadius: 20,
                 onPressed: () {
-                  setState(
-                    () {
-                      widget.textBox = "";
-                    },
-                  );
+                  widget.onPressed("×");
                 },
               )
             ],
@@ -130,11 +125,7 @@ class _CalculatorNumberPadState extends State<CalculatorNumberPad> {
                   height: 90,
                   borderRadius: 30,
                   onPressed: () {
-                    setState(
-                      () {
-                        widget.textBox = "";
-                      },
-                    );
+                    widget.onPressed(i.toString());
                   },
                 );
               }),
@@ -147,11 +138,8 @@ class _CalculatorNumberPadState extends State<CalculatorNumberPad> {
                 height: 90,
                 borderRadius: 30,
                 onPressed: () {
-                  setState(
-                    () {
-                      widget.textBox = "";
-                    },
-                  );
+                  widget.onPressed("-");
+                  print("Minus");
                 },
               ),
             ],
@@ -171,11 +159,7 @@ class _CalculatorNumberPadState extends State<CalculatorNumberPad> {
                   height: 90,
                   borderRadius: 30,
                   onPressed: () {
-                    setState(
-                      () {
-                        widget.textBox = "";
-                      },
-                    );
+                    widget.onPressed(i.toString());
                   },
                 );
               }),
@@ -188,11 +172,7 @@ class _CalculatorNumberPadState extends State<CalculatorNumberPad> {
                 height: 90,
                 borderRadius: 30,
                 onPressed: () {
-                  setState(
-                    () {
-                      widget.textBox = "";
-                    },
-                  );
+                  widget.onPressed("+");
                 },
               ),
             ],
@@ -209,11 +189,7 @@ class _CalculatorNumberPadState extends State<CalculatorNumberPad> {
                 height: 90,
                 borderRadius: 30,
                 onPressed: () {
-                  setState(
-                    () {
-                      widget.textBox = "";
-                    },
-                  );
+                  widget.onPressed("0");
                 },
               ),
               AppButtons(

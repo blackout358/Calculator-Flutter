@@ -31,20 +31,25 @@ class AppButtons extends StatelessWidget {
         // height: (MediaQuery.of(context).size.width - 30) / 4,
         // width: (MediaQuery.of(context).size.width - 30) / 4,
         decoration: BoxDecoration(
-
-            // color: backgroundColor,
-            gradient: const LinearGradient(
-              colors: [Color(0xFFFF5B94), Color(0xFF8441A4)],
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-            ),
-            borderRadius: BorderRadius.circular(borderRadius.toDouble()),
-            border: Border.all(color: borderColor, width: 1.0)),
+          // color: backgroundColor,
+          gradient: const LinearGradient(
+            colors: [Color(0xFFFF5B94), Color(0xFF8441A4)],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
+          borderRadius: BorderRadius.circular(borderRadius.toDouble()),
+          border: Border.all(
+            color: borderColor,
+            width: 1.0,
+          ),
+        ),
         child: ElevatedButton(
           onPressed: onPressed,
           style: ElevatedButton.styleFrom(
-            minimumSize: Size.fromHeight(200),
-            backgroundColor: Colors.transparent,
+            // margin: EdgeInsets.all(2),
+            // padding: EdgeInsets.symmetric(horizontal: 0, vertical: 20),
+            // minimumSize: Size.fromHeight(height),
+            backgroundColor: Color.fromARGB(172, 0, 255, 128),
             shadowColor: Colors.transparent,
             foregroundColor: foregroundColor,
             shape: RoundedRectangleBorder(

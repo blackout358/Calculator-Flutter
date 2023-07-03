@@ -1,24 +1,24 @@
 import 'package:flutter/material.dart';
 
-class AppButtons extends StatelessWidget {
+class IconAppButtons extends StatelessWidget {
   final Color foregroundColor;
   final Color backgroundColor;
   final Color borderColor;
-  final String text;
   final int borderRadius;
   final VoidCallback onPressed;
+  bool? isIcon = false;
   IconData? icon;
   double width;
   double height;
-  AppButtons(
+  IconAppButtons(
       {super.key,
       required this.foregroundColor,
       required this.backgroundColor,
       required this.borderColor,
-      required this.text,
       required this.width,
       required this.height,
       this.icon,
+      this.isIcon,
       required this.borderRadius,
       required this.onPressed});
   @override
@@ -56,17 +56,11 @@ class AppButtons extends StatelessWidget {
               ),
             ),
           ),
-          child: Text(
-            text,
-            style: TextStyle(
-              fontSize: 0.04 * MediaQuery.of(context).size.height,
-            ),
+          child: Icon(
+            icon,
+            color: Colors.white,
+            size: 40,
           ),
-          // icon: Icon(
-          //   icon,
-          //   color: Colors.lime,
-          //   // size: 20,
-          // ),
         ),
       ),
     );

@@ -1,3 +1,4 @@
+import 'package:calculator/Widgets/icon_button.dart';
 import 'package:flutter/material.dart';
 import 'package:calculator/Widgets/app_buttons.dart';
 import 'package:flutter_layout_grid/flutter_layout_grid.dart';
@@ -45,12 +46,11 @@ class _CalculatorNumberPadState extends State<CalculatorNumberPad> {
                   print("AC");
                 },
               ),
-              AppButtons(
+              IconAppButtons(
                 foregroundColor: const Color.fromARGB(255, 0, 0, 0),
                 backgroundColor: Colors.red,
                 borderColor: Colors.orange,
                 icon: Icons.backspace_outlined,
-                text: "",
                 width: size,
                 height: size,
                 borderRadius: 30,

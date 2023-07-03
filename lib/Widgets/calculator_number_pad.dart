@@ -79,7 +79,7 @@ class _CalculatorNumberPadState extends State<CalculatorNumberPad> {
                 height: size,
                 borderRadius: 30,
                 onPressed: () {
-                  print("Hey");
+                  widget.onPressed("/");
                 },
               ),
             ],
@@ -111,7 +111,7 @@ class _CalculatorNumberPadState extends State<CalculatorNumberPad> {
                 height: size,
                 borderRadius: 30,
                 onPressed: () {
-                  widget.onPressed("×");
+                  widget.onPressed("*");
                 },
               )
             ],
@@ -207,7 +207,7 @@ class _CalculatorNumberPadState extends State<CalculatorNumberPad> {
                 height: size,
                 borderRadius: 30,
                 onPressed: () {
-                  print("Dot");
+                  widget.onPressed(".");
                 },
               ),
               AppButtons(

@@ -1,7 +1,7 @@
 import 'package:calculator/Widgets/calculator_number_pad.dart';
 import 'package:calculator/Widgets/text_box.dart';
 import 'package:flutter/material.dart';
-import 'package:math_parser/math_parser.dart';
+import 'package:function_tree/function_tree.dart';
 
 void main() {
   runApp(const MainApp());
@@ -35,10 +35,17 @@ class _MainAppState extends State<MainApp> {
           );
         }
       case "EQUALS":
-        setState(() {
-          print(MathNodeExpression.fromString(text).calc);
-          answer = (MathNodeExpression.fromString(text).calc).toString();
-        });
+        try {
+          setState(() {
+            print(text.interpret());
+            answer = (text.interpret()).toString();
+          });
+        } on Exception catch (_) {
+          setState(() {
+            answer = "Error";
+          });
+        }
+
       default:
         setState(() {
           text += value;
@@ -62,7 +69,7 @@ class _MainAppState extends State<MainApp> {
                 startColour: Color.fromARGB(255, 100, 100, 100),
                 endColour: Color.fromARGB(255, 255, 255, 255),
                 height: 250,
-                textColour: Colors.white),
+                textColour: const Color.fromARGB(255, 0, 0, 0)),
             TextBox(
               text: text,
               startColour: Color.fromARGB(255, 91, 222, 255),

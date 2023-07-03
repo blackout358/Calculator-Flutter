@@ -63,14 +63,10 @@ class _MainAppState extends State<MainApp> {
             ),
             Spacer(),
             TextBox(text: text),
-            // Spacer(),
             CalculatorNumberPad(
               onPressed: (String value) {
                 updateTextBox(value);
               },
-            ),
-            SizedBox(
-              height: 0,
             ),
           ],
         ),

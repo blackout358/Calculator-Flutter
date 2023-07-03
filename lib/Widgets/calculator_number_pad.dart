@@ -5,10 +5,8 @@ import 'package:flutter_layout_grid/flutter_layout_grid.dart';
 
 class CalculatorNumberPad extends StatefulWidget {
   final ValueChanged<String> onPressed;
-  // String textBox;
   CalculatorNumberPad({
     Key? key,
-    // required this.textBox,
     required this.onPressed,
   }) : super(key: key);
 
@@ -17,16 +15,12 @@ class CalculatorNumberPad extends StatefulWidget {
 }
 
 class _CalculatorNumberPadState extends State<CalculatorNumberPad> {
-  // double size = 100;
   @override
   Widget build(BuildContext context) {
     double size = 70;
     return Container(
-      // height: 300,
       margin: EdgeInsets.all(2),
       padding: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
-      // height: (MediaQuery.of(context).size.width + 70),
-      // alignment: Alignment.bottomCenter,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
@@ -116,7 +110,6 @@ class _CalculatorNumberPadState extends State<CalculatorNumberPad> {
               )
             ],
           ),
-          // const SizedBox(height: 15),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
@@ -150,7 +143,6 @@ class _CalculatorNumberPadState extends State<CalculatorNumberPad> {
               ),
             ],
           ),
-          // const SizedBox(height: 15),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [

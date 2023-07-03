@@ -2,7 +2,17 @@ import 'package:flutter/material.dart';
 
 class TextBox extends StatelessWidget {
   final String text;
-  TextBox({super.key, required this.text});
+  final Color startColour;
+  final Color endColour;
+  final Color textColour;
+  final int height;
+  TextBox(
+      {super.key,
+      required this.text,
+      required this.startColour,
+      required this.endColour,
+      required this.height,
+      required this.textColour});
 
   @override
   Widget build(BuildContext context) {
@@ -14,10 +24,10 @@ class TextBox extends StatelessWidget {
         margin: EdgeInsets.all(5),
         decoration: BoxDecoration(
           // color: backgroundColor,
-          gradient: const LinearGradient(
+          gradient: LinearGradient(
             colors: [
-              Color.fromARGB(255, 91, 222, 255),
-              Color.fromARGB(255, 10, 34, 173)
+              startColour,
+              endColour,
             ],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
@@ -30,8 +40,8 @@ class TextBox extends StatelessWidget {
         ),
         child: Text(
           text,
-          style: const TextStyle(
-            color: Color.fromARGB(255, 255, 255, 255),
+          style: TextStyle(
+            color: textColour,
             fontSize: 40,
           ),
         ),

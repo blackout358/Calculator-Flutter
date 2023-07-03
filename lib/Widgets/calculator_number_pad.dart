@@ -1,7 +1,7 @@
 import 'package:calculator/Widgets/icon_button.dart';
 import 'package:flutter/material.dart';
 import 'package:calculator/Widgets/app_buttons.dart';
-import 'package:flutter_layout_grid/flutter_layout_grid.dart';
+import 'package:math_parser/math_parser.dart';
 
 class CalculatorNumberPad extends StatefulWidget {
   final ValueChanged<String> onPressed;

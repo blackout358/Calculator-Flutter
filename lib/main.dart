@@ -25,7 +25,7 @@ class _MainAppState extends State<MainApp> {
           text = clear;
         });
       case "DELETE":
-        if (text.length != 0) {
+        if (text.isNotEmpty) {
           setState(
             () {
               text = text.substring(0, text.length - 1);
@@ -39,10 +39,6 @@ class _MainAppState extends State<MainApp> {
     }
   }
 
-  TextStyle myTextStyle = const TextStyle(
-    fontSize: 40,
-  );
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -53,16 +49,10 @@ class _MainAppState extends State<MainApp> {
         backgroundColor: Colors.limeAccent,
         body: Column(
           children: [
-            ElevatedButton(
-              onPressed: () {
-                setState(() {
-                  text = "";
-                });
-              },
-              child: Text("Reset", style: myTextStyle),
+            const Spacer(),
+            TextBox(
+              text: text,
             ),
-            Spacer(),
-            TextBox(text: text),
             CalculatorNumberPad(
               onPressed: (String value) {
                 updateTextBox(value);

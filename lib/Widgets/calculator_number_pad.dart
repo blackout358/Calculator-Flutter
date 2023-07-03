@@ -40,28 +40,28 @@ class _CalculatorNumberPadState extends State<CalculatorNumberPad> {
                   print("AC");
                 },
               ),
-              IconAppButtons(
-                foregroundColor: const Color.fromARGB(255, 0, 0, 0),
+              AppButtons(
+                foregroundColor: Colors.white,
                 backgroundColor: Colors.red,
                 borderColor: Colors.orange,
-                icon: Icons.backspace_outlined,
+                text: "(",
                 width: size,
                 height: size,
                 borderRadius: 30,
                 onPressed: () {
-                  widget.onPressed("DELETE");
+                  widget.onPressed("(");
                 },
               ),
               AppButtons(
                 foregroundColor: Colors.white,
                 backgroundColor: Colors.red,
                 borderColor: Colors.orange,
-                text: "%",
+                text: ")",
                 width: size,
                 height: size,
                 borderRadius: 30,
                 onPressed: () {
-                  print("%");
+                  widget.onPressed(")");
                 },
               ),
               AppButtons(
@@ -181,6 +181,18 @@ class _CalculatorNumberPadState extends State<CalculatorNumberPad> {
               AppButtons(
                 foregroundColor: Colors.white,
                 backgroundColor: Colors.red,
+                borderColor: Colors.cyanAccent,
+                text: ".",
+                width: size,
+                height: size,
+                borderRadius: 30,
+                onPressed: () {
+                  widget.onPressed(".");
+                },
+              ),
+              AppButtons(
+                foregroundColor: Colors.white,
+                backgroundColor: Colors.red,
                 borderColor: Colors.orange,
                 text: "0",
                 width: size + size + 4,
@@ -190,16 +202,16 @@ class _CalculatorNumberPadState extends State<CalculatorNumberPad> {
                   widget.onPressed("0");
                 },
               ),
-              AppButtons(
-                foregroundColor: Colors.white,
+              IconAppButtons(
+                foregroundColor: const Color.fromARGB(255, 0, 0, 0),
                 backgroundColor: Colors.red,
-                borderColor: Colors.cyanAccent,
-                text: ".",
+                borderColor: Colors.orange,
+                icon: Icons.backspace_outlined,
                 width: size,
                 height: size,
                 borderRadius: 30,
                 onPressed: () {
-                  widget.onPressed(".");
+                  widget.onPressed("DELETE");
                 },
               ),
               AppButtons(
@@ -211,7 +223,7 @@ class _CalculatorNumberPadState extends State<CalculatorNumberPad> {
                   height: size,
                   borderRadius: 30,
                   onPressed: () {
-                    print("Equals");
+                    widget.onPressed("EQUALS");
                   })
             ],
           ),

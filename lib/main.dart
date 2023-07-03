@@ -1,5 +1,5 @@
-import 'package:calculator/Widgets/app_buttons.dart';
 import 'package:calculator/Widgets/calculator_number_pad.dart';
+import 'package:calculator/Widgets/text_box.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -17,9 +17,15 @@ class _MainAppState extends State<MainApp> {
   String text = "A";
 
   void updateTextBox(String value) {
-    setState(() {
-      text = value;
-    });
+    String clear = "";
+
+    value == "CLEAR"
+        ? setState(() {
+            text = clear;
+          })
+        : setState(() {
+            text += value;
+          });
   }
 
   TextStyle myTextStyle = const TextStyle(
@@ -44,21 +50,9 @@ class _MainAppState extends State<MainApp> {
               },
               child: Text("Reset", style: myTextStyle),
             ),
-            SizedBox(
-              height: 50,
-              child: Column(
-                children: [
-                  Text(text),
-                ],
-              ),
-            ),
             Spacer(),
-            // CalculatorNumberPad(
-            //   crossAxisCount: 4,
-            //   onPressed: (String value) {
-            //     updateTextBox(value);
-            //   },
-            // ),
+            TextBox(text: text),
+            // Spacer(),
             CalculatorNumberPad(
               onPressed: (String value) {
                 updateTextBox(value);

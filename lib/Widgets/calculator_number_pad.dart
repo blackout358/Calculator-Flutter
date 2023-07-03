@@ -41,7 +41,8 @@ class _CalculatorNumberPadState extends State<CalculatorNumberPad> {
                 height: size,
                 borderRadius: 30,
                 onPressed: () {
-                  print("Hey");
+                  widget.onPressed("CLEAR");
+                  print("AC");
                 },
               ),
               AppButtons(

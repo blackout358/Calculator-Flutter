@@ -46,15 +46,16 @@ class _CalculatorNumberPadState extends State<CalculatorNumberPad> {
                 },
               ),
               AppButtons(
-                foregroundColor: Colors.white,
+                foregroundColor: const Color.fromARGB(255, 0, 0, 0),
                 backgroundColor: Colors.red,
                 borderColor: Colors.orange,
-                text: "±",
+                icon: Icons.backspace_outlined,
+                text: "",
                 width: size,
                 height: size,
                 borderRadius: 30,
                 onPressed: () {
-                  print("plus/minus");
+                  widget.onPressed("DELETE");
                 },
               ),
               AppButtons(

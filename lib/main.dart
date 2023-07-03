@@ -19,13 +19,24 @@ class _MainAppState extends State<MainApp> {
   void updateTextBox(String value) {
     String clear = "";
 
-    value == "CLEAR"
-        ? setState(() {
-            text = clear;
-          })
-        : setState(() {
-            text += value;
-          });
+    switch (value) {
+      case "CLEAR":
+        setState(() {
+          text = clear;
+        });
+      case "DELETE":
+        if (text.length != 0) {
+          setState(
+            () {
+              text = text.substring(0, text.length - 1);
+            },
+          );
+        }
+      default:
+        setState(() {
+          text += value;
+        });
+    }
   }
 
   TextStyle myTextStyle = const TextStyle(

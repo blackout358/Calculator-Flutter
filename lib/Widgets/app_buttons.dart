@@ -42,28 +42,32 @@ class AppButtons extends StatelessWidget {
           ),
         ),
         child: Container(
-          child: ElevatedButton(
-            onPressed: onPressed,
-            style: ElevatedButton.styleFrom(
-              // margin: EdgeInsets.all(2),
-              // padding: EdgeInsets.symmetric(horizontal: 0, vertical: 20),
-              // minimumSize: Size.fromHeight(height),
-              backgroundColor: Colors.transparent,
-              shadowColor: Colors.transparent,
-              foregroundColor: foregroundColor,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(
-                  borderRadius.toDouble(),
+          child: ElevatedButton.icon(
+              onPressed: onPressed,
+              style: ElevatedButton.styleFrom(
+                // margin: EdgeInsets.all(2),
+                // padding: EdgeInsets.symmetric(horizontal: 0, vertical: 20),
+                // minimumSize: Size.fromHeight(height),
+                backgroundColor: Colors.transparent,
+                shadowColor: Colors.transparent,
+                foregroundColor: foregroundColor,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(
+                    borderRadius.toDouble(),
+                  ),
                 ),
               ),
-            ),
-            child: Text(
-              text,
-              style: TextStyle(
-                fontSize: 0.04 * MediaQuery.of(context).size.height,
+              label: Text(
+                text,
+                style: TextStyle(
+                  fontSize: 0.04 * MediaQuery.of(context).size.height,
+                ),
               ),
-            ),
-          ),
+              icon: Icon(
+                icon,
+                color: Colors.lime,
+                size: 0.04 * MediaQuery.of(context).size.height,
+              )),
         ),
       ),
     );

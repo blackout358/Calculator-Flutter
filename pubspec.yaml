@@ -10,6 +10,7 @@ dependencies:
   flutter:
     sdk: flutter
   function_tree: ^0.8.13 
+  math_parser: ^1.5.1
 
 dev_dependencies:
   flutter_test:

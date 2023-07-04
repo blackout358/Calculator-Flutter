@@ -1,7 +1,7 @@
 import 'package:calculator/Widgets/calculator_number_pad.dart';
 import 'package:calculator/Widgets/text_box.dart';
 import 'package:flutter/material.dart';
-import 'package:function_tree/function_tree.dart';
+import "Calculations.dart";
 
 void main() {
   runApp(const MainApp());
@@ -17,41 +17,6 @@ class MainApp extends StatefulWidget {
 class _MainAppState extends State<MainApp> {
   String text = "A";
   String answer = "";
-
-  void updateTextBox(String value) {
-    String clear = "";
-
-    switch (value) {
-      case "CLEAR":
-        setState(() {
-          text = clear;
-        });
-      case "DELETE":
-        if (text.isNotEmpty) {
-          setState(
-            () {
-              text = text.substring(0, text.length - 1);
-            },
-          );
-        }
-      case "EQUALS":
-        try {
-          setState(() {
-            print(text.interpret());
-            answer = (text.interpret()).toString();
-          });
-        } on Exception catch (_) {
-          setState(() {
-            answer = "Error";
-          });
-        }
-
-      default:
-        setState(() {
-          text += value;
-        });
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -79,7 +44,18 @@ class _MainAppState extends State<MainApp> {
             ),
             CalculatorNumberPad(
               onPressed: (String value) {
-                updateTextBox(value);
+                value != "EQUALS"
+                    ? setState(
+                        () {
+                          text = Calculations.calculationInterface(value, text);
+                        },
+                      )
+                    : setState(
+                        () {
+                          answer =
+                              Calculations.calculationInterface(value, text);
+                        },
+                      );
               },
             ),
           ],

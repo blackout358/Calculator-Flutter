@@ -28,20 +28,22 @@ class _MainAppState extends State<MainApp> {
         backgroundColor: Colors.limeAccent,
         body: Column(
           children: [
-            const Spacer(),
-            TextBox(
-                text: answer,
-                startColour: Color.fromARGB(255, 100, 100, 100),
-                endColour: Color.fromARGB(255, 255, 255, 255),
-                height: 250,
-                textColour: const Color.fromARGB(255, 0, 0, 0)),
+            // const Spacer(),
             TextBox(
               text: text,
               startColour: Color.fromARGB(255, 91, 222, 255),
               endColour: Color.fromARGB(255, 10, 34, 173),
-              height: 300,
+              height: 200,
               textColour: Colors.white,
             ),
+            TextBox(
+              text: answer,
+              startColour: Color.fromARGB(255, 100, 100, 100),
+              endColour: Color.fromARGB(255, 255, 255, 255),
+              height: 150,
+              textColour: const Color.fromARGB(255, 0, 0, 0),
+            ),
+            const Spacer(),
             CalculatorNumberPad(
               onPressed: (String value) {
                 value != "EQUALS"

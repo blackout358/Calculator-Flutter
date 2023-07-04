@@ -1,9 +1,6 @@
 import 'package:math_parser/math_parser.dart';
 
 class Calculations {
-  // String equation;
-  // Calculations(this.equation);
-
   static String calculationInterface(String value, String text) {
     switch (value) {
       case "CLEAR":
@@ -20,12 +17,6 @@ class Calculations {
         } on Exception catch (_) {
           return "Error";
         }
-      // case "EQUALS":
-      //   try {
-      //     return (text.interpret()).toString();
-      //   } on Exception catch (_) {
-      //     return "Error";
-      //   }
       default:
         return text + value;
     }

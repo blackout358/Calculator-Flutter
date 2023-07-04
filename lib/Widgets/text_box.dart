@@ -13,7 +13,6 @@ class TextBox extends StatelessWidget {
       required this.endColour,
       required this.height,
       required this.textColour});
-
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -38,11 +37,18 @@ class TextBox extends StatelessWidget {
             width: 1.0,
           ),
         ),
-        child: Text(
-          text,
-          style: TextStyle(
-            color: textColour,
-            fontSize: 40,
+        child: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: Wrap(
+            children: [
+              Text(
+                text,
+                style: TextStyle(
+                  color: textColour,
+                  fontSize: 40,
+                ),
+              ),
+            ],
           ),
         ),
       ),

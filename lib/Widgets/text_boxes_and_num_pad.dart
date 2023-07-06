@@ -13,6 +13,8 @@ class TextBoxAndNumPad extends StatefulWidget {
 class _TextBoxAndNumPadState extends State<TextBoxAndNumPad> {
   String equationBox = "";
   String answerBox = "";
+  double roundTo(double value, double precision) =>
+      (value * precision).round() / precision;
 
   void updateValue(String value) {
     switch (value) {
@@ -24,15 +26,40 @@ class _TextBoxAndNumPadState extends State<TextBoxAndNumPad> {
       case "DELETE":
         if (equationBox.isNotEmpty) {
           setState(() {
-            equationBox.substring(0, equationBox.length - 1);
+            equationBox = equationBox.substring(0, equationBox.length - 1);
           });
         }
       case "EQUALS":
         try {
           setState(() {
-            answerBox = (MathNodeExpression.fromString(equationBox)
-                    .calc(MathVariableValues.none))
-                .toString();
+            // answerBox = (MathNodeExpression.fromString(equationBox)
+            //         .calc(MathVariableValues.none))
+            //     .toString();
+
+            /* 
+            Kinda fix if you divide by to big number it returns 0
+            Rest of operations look ugly af as they are followed by $.0*20
+            */
+
+            answerBox = ((MathNodeExpression.fromString(equationBox)
+                        .calc(MathVariableValues.none))
+                    .toDouble())
+                .toStringAsFixed(20);
+
+            // answerBox = roundTo(
+            //         MathNodeExpression.fromString(equationBox)
+            //             .calc(MathVariableValues.none)
+            //             .toDouble(),
+            //         (equationBox.length).toDouble())
+            //     .toString();
+            // answerBox = roundTo(0.3 - 0.2, 10).toString();
+
+            // answerBox = ((MathNodeExpression.fromString(equationBox)
+            //                     .calc(MathVariableValues.none) *
+            //                 100)
+            //             .round() /
+            //         100)
+            //     .toString();
           });
         } on Exception catch (_) {
           setState(() {

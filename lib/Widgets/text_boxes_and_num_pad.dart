@@ -16,6 +16,10 @@ class _TextBoxAndNumPadState extends State<TextBoxAndNumPad> {
   double roundTo(double value, double precision) =>
       (value * precision).round() / precision;
 
+  removeTrailingZeros(String n) {
+    return n.replaceAll(RegExp(r"([.]*0+)(?!.*\d)"), "");
+  }
+
   void updateValue(String value) {
     switch (value) {
       case "CLEAR":
@@ -38,15 +42,22 @@ class _TextBoxAndNumPadState extends State<TextBoxAndNumPad> {
 
             /* 
             Kinda fix if you divide by to big number it returns 0
-            Rest of operations look ugly af as they are followed by $.0*20
+            Rest of operations look ugly af as they are followed by $.0*15
 
-            Best working solution atm 15 is an ideal number for percision as leads to least errors
+            Best working solution atm 15 is an ideal number for percision as 
+            leads to least errors
             */
 
-            answerBox = ((MathNodeExpression.fromString(equationBox)
-                        .calc(MathVariableValues.none))
-                    .toDouble())
-                .toStringAsPrecision(15);
+            // answerBox = ((MathNodeExpression.fromString(equationBox)
+            //             .calc(MathVariableValues.none))
+            //         .toDouble())
+            //     .toStringAsPrecision(15);
+
+            answerBox = removeTrailingZeros(
+                ((MathNodeExpression.fromString(equationBox)
+                            .calc(MathVariableValues.none))
+                        .toDouble())
+                    .toStringAsPrecision(15));
 
             // answerBox = roundTo(
             //         MathNodeExpression.fromString(equationBox)
@@ -54,6 +65,7 @@ class _TextBoxAndNumPadState extends State<TextBoxAndNumPad> {
             //             .toDouble(),
             //         (equationBox.length).toDouble())
             //     .toString();
+
             // answerBox = roundTo(0.3 - 0.2, 10).toString();
 
             // answerBox = ((MathNodeExpression.fromString(equationBox)

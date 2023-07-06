@@ -1,6 +1,7 @@
 import 'package:calculator/Widgets/icon_button.dart';
 import 'package:flutter/material.dart';
 import 'package:calculator/Widgets/app_buttons.dart';
+import 'calculator_text_boxes.dart';
 
 class CalculatorNumberPad extends StatefulWidget {
   final ValueChanged<String> onPressed;
@@ -92,6 +93,7 @@ class _CalculatorNumberPadState extends State<CalculatorNumberPad> {
                   borderRadius: 30,
                   onPressed: () {
                     widget.onPressed(i.toString());
+                    print(i);
                   },
                 );
               }),

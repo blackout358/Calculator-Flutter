@@ -39,12 +39,14 @@ class _TextBoxAndNumPadState extends State<TextBoxAndNumPad> {
             /* 
             Kinda fix if you divide by to big number it returns 0
             Rest of operations look ugly af as they are followed by $.0*20
+
+            Best working solution atm 15 is an ideal number for percision as leads to least errors
             */
 
             answerBox = ((MathNodeExpression.fromString(equationBox)
                         .calc(MathVariableValues.none))
                     .toDouble())
-                .toStringAsFixed(20);
+                .toStringAsPrecision(15);
 
             // answerBox = roundTo(
             //         MathNodeExpression.fromString(equationBox)
